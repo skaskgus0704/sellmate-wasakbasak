@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme) => ({
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'space-between !important',
-		marginBottom: '20px',
 	},
 	noticeText: {
 		fontWeight: 700,
@@ -73,9 +72,11 @@ const Board = () => {
 						sx={{ padding: 0, marginBottom: '20px', flexDirection: 'column' }}
 						disablePadding
 						>
-						<ListItemAvatar className={classes.title}>
-							<span className={classes.title}>{post.boardType == 'notice' ? '공지' : post.userId}</span>
-							<Avatar sx={{ width: 40, height: 20 }} src={newIcon} variant="square"/>
+						<ListItemAvatar sx={{width: '100%'}} className={classes.title}>
+							<span>{post.boardType === 'notice' ? '공지' : post.userId}</span>
+							{
+								post.icon ? <Avatar sx={{ width: 40, height: 20 }} src={newIcon} variant="square"/> : ''
+							}
 						</ListItemAvatar>
 						<ListItemText
               				className={classes.text}
